@@ -26,10 +26,10 @@ Le mode s'adapte **automatiquement** selon la qualité de connexion détectée.
 - ✅ Caching stratégique
 
 ### 🧠 IA Légère
-- Embeddings multilingues (MiniLM-L12-v2)
+- Embeddings 384D déterministes (hash-based) inspirés de MiniLM
 - RAG (Retrieval-Augmented Generation)
 - Recherche sémantique locale
-- Fallback automatique
+- Fallback automatique entre les 3 modes (Offline / Hybride / Online)
 
 ## 🚀 Installation
 
@@ -43,60 +43,38 @@ npm start
 
 L'application sera disponible sur [http://localhost:3000](http://localhost:3000)
 
-### Data Collection (Python)
-
-```bash
-cd data-collection
-pip install -r requirements.txt
-
-# Scraper le site nuitdelinfo.com
-python 01_scraper_advanced.py
-
-# Nettoyer et structurer
-python 03_data_cleaner.py
-
-# Générer embeddings
-python 05_embeddings_creator.py
-```
-
-Ou utilisez le script automatique:
-```bash
-cd data-collection
-./update_data.sh
-```
-
 ## 📂 Structure du Projet
 
 ```
 assistant-ia-nuit-info/
-├── frontend/                    # Application React
+├── frontend/                    # Application React (PWA, modes Offline/Hybride/Online)
 │   ├── public/
-│   │   ├── data/
-│   │   │   ├── faqs.json       # Base de données FAQ
-│   │   │   └── embeddings.json # Vecteurs sémantiques
-│   │   ├── service-worker.js   # PWA offline
-│   │   └── manifest.json       # Configuration PWA
+│   │   └── data/
+│   │       ├── faqs.json       # Base de données FAQ générée
+│   │       └── embeddings.json # Vecteurs sémantiques low-cost (384D)
 │   └── src/
-│       ├── components/         # Composants React
-│       │   ├── Chat/           # Interface chat
-│       │   └── UI/             # Composants UI
-│       ├── services/
-│       │   ├── aiEngine/       # 3 moteurs IA
-│       │   ├── storage/        # IndexedDB
-│       │   ├── ml/             # RAG, embeddings
-│       │   └── api/            # Backend API
-│       ├── hooks/              # useChat, useConnection
+│       ├── components/         # Composants React (Chat, UI...)
+│       ├── services/           # AIService, moteurs IA, API, IndexedDB
+│       ├── hooks/              # useChat, useConnection, etc.
 │       ├── locales/            # i18n FR/AR
-│       └── styles/             # CSS avec RTL
+│       └── styles/             # CSS avec support RTL
 │
-├── data-collection/            # Scripts Python
-│   ├── 01_scraper_advanced.py # Web scraping
-│   ├── 03_data_cleaner.py     # Nettoyage données
-│   ├── 05_embeddings_creator.py # Génération embeddings
-│   └── requirements.txt        # Dépendances Python
+├── backend/                     # API FastAPI pour le mode Online (RAG + LLM OpenRouter)
+│   ├── app/
+│   │   ├── main.py             # Endpoints /api/chat et /api/health
+│   │   ├── rag.py              # Recherche sémantique sur les FAQs
+│   │   ├── llm_client.py       # Appel au LLM via OpenRouter
+│   │   └── config.py           # Configuration (chemins, clés, modèles)
+│   └── requirements.txt        # Dépendances Python backend
 │
-├── description.txt             # Cahier des charges
-└── documentation.txt           # Documentation complète
+├── Script/                      # Scraper Nuit de l'Info + données brutes
+│   ├── scraper_nuit_info.py    # Crawler avec limites (max pages, délais)
+│   └── data/nuit_info/         # Données JSON scrappées (re-générables)
+│
+├── process_all_data.py          # Génération FAQs + embeddings low-cost à partir du scrape
+├── PDF explicatif.pdf           # Documentation PDF (architecture + IA low-cost)
+├── description.txt              # Cahier des charges
+└── documentation.txt            # Documentation texte détaillée
 ```
 
 ## 🎯 Utilisation
