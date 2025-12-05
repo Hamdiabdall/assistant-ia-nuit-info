@@ -1,0 +1,47 @@
+FACULTé DES SCIENCES ET TECHNIQUES DE L'UNIVERSITé DE NOUAKCHOTT
+La Faculté des Sciences et Techniques de l’Université de Nouakchott (FST-UN) regroupe des formations solides en informatique, mathématiques, physique, chimie et ingénierie. Notre Département d’Informatique offre une Licence professionnalisante en Informatique appliquée, orientée vers les technologies modernes, le développement logiciel, l’IA, la cybersécurité et la transformation digitale.
+
+Nos étudiants sont reconnus pour leur motivation, leur créativité, ainsi que leur capacité à travailler en équipe dans des contextes réels et innovants. L’encadrement est assuré par une équipe d’enseignants-chercheurs expérimentés, impliqués dans des projets nationaux et internationaux.
+
+La participation de la FST à la Nuit de l’Informatique 2025 vise à encourager l’innovation, renforcer les compétences pratiques, et contribuer à la stratégie nationale de numérisation. Nous souhaitons collaborer avec nos partenaires pour proposer des défis ambitieux, utiles et alignés sur les enjeux technologiques actuels.
+
+Le défi: IA Low-Cost pour améliorer l’accès aux services publics numériques
+Theme:
+IA légère, inclusion numérique, services publics
+Lot:
+Kit IA low-cost : mini-ordinateur + micro-kit Arduino/ESP (ou équivalent) (+ possibilité d’un stage ou entretien technique, si souhaité par le partenaire)
+
+Créer un assistant intelligent léger (IA low-cost), capable d'aider les utilisateurs - de l’application du défi national - à accéder facilement à n’importe quels services publics numériques, même avec une faible connexion Internet.
+
+Elements attendus
+La digitalisation des services publics progresse rapidement à travers le monde mais une partie de la population fait encore face à des difficultés d’accès liées à la faible connectivité, au manque d’équipements ou à des interfaces complexes. Le défi consiste à développer une solution d’IA légère (low-cost) capable d’aider les visiteurs potentiels de l'application de la nuit de l'info à accéder plus facilement aux services administratifs (documents, démarches, orientation, association, juridique) même avec une connexion Internet faible ou instable. 
+
+Votre solution peut prendre la forme d’un assistant, d’un moteur de recommandation ou d’un système hybride offline/online et doit être intégrer à l'applicationde la nuit de l'info.
+
+Objectif : créer une IA réellement utile, accessible et adaptée aux réalités technologiques des pays ayant une faible connexion Internet.
+
+Éléments attendus
+Un prototype fonctionnel (web de préférence, bonus : mobile ou desktop).
+
+Utilisation d’une IA légère (modèle quantifié, distillé, ONNX, petit LLM, règles intelligentes…).
+
+Une interface simple, bilingue (FR/AR ; bonus : langues nationales).
+
+Un fonctionnement partiel offline (cache, base de questions, mini-modèle local).
+
+Une courte documentation fonctionnelle et technique.
+
+Mode de restitution
+Dépôt GitHub ou GitLab incluant :
+
+code source,
+
+notice d’installation,
+
+documentation,
+
+vidéo de démonstration (3 minutes maximum).
+
+PDF explicatif (architecture + justification IA low-cost).
+
+Envoyez le tout à : elbenany.med-mahmoud@supnum.mr
